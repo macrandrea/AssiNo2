@@ -1,0 +1,5 @@
+function A=Vander(x,o)
+m=width(x);
+A=ones(m);
+
+end
