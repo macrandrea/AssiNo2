@@ -7,10 +7,7 @@ n=rank(A);
     if m==n %check full cols rank
         L=chol(C);
         x=inv(L'*L)*L'*d;
-        %x=inv(L)*d;
-        %x=inv(L)*d;
-        %choleski Cx=d
-        %b=x'*A*x;
+     
     else
         error('No full cols rank')
     end
