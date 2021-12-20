@@ -5,10 +5,11 @@ d=A'*y;
 m=width(A);
 n=rank(A);
 if m==n %check full cols rank
-    C=A'*A;
-    d=A'*b;
-    choleski Cx=d
-    b=x'*A*x;
+    L=chol(C);
+    x=inverse(L)*d;
+    x=inv(L)*d;
+    %choleski Cx=d
+    %b=x'*A*x;
 else
     error('No full cols rank')
 end
