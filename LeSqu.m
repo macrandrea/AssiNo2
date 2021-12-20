@@ -1,13 +1,14 @@
-function x=LeSqu(x,y,polyMax)
+function [u,ell]=LeSqu(x,y,polyMax)
 A=Vander(x,polyMax);
 C=A'*A;
 d=A'*y;
-m=width(A);
+m=length(d);
 n=rank(A);
     if m==n %check full cols rank
-        L=chol(C);
-        x=inv(L'*L)*L'*d;
-     
+        L=chol(C,"upper");
+        u=backsubUTri(L,d,m);
+        R=chol(C,"lower");%forse inefficiente
+        ell=backsubLoTri(R,d,m);
     else
         error('No full cols rank')
     end
