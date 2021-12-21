@@ -1,4 +1,4 @@
-function [u,ell]=LeSqu(x,y,polyMax)
+function [u]=LeSqu(x,y,polyMax)
 A=Vander(x,polyMax);
 C=A'*A;
 d=A'*y;
@@ -13,13 +13,3 @@ R=chol(C,"upper");
         error('No full cols rank')
     end
 end
-        %u=L\d;
-        %ell=L'\u;
-        %L=chol(C,"upper");
-        %u=
-        %R=chol(C,"lower");%forse inefficiente
-        %
-
-
-%L*y=d
-%U*x=y
