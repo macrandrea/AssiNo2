@@ -1,0 +1,17 @@
+C=[-4,-2,-4,-2; 
+    2,-2,2,1;
+    -800,200,-800,-401];
+[S,V,D]=svd(C);
+%leva le r-k entries più piccole: in questo caso rango 1 e ottieni V_k
+V1=[1216.89895027170,	0,	0,	0;
+                    0,	0,	0,	0;
+                    0,	0,	0,	0];
+%Ck=S*Vk*D';
+%Ck è la rand k approx
+C1=S()*V1*D;
+V2=[1216.89895027170,	0,	0,	0;
+                    0,	3.30829410268490,	0,	0;
+                    0,	0,	0,	0];
+C2=S*V2*D;
+fr1=norm(C-C1,"fro");
+fr2=norm(C-C2,"fro");
